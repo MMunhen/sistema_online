@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Aluno</title>
+    <script>
+        var banco_aluno = []
+
+        function cadastrar(){
+            var aluno = {}
+            aluno["nome"] = document.getElementById("nome").value;
+            aluno["nascimento"] = document.getElementById("nascimento").value;
+            aluno["endereco"] = document.getElementById("endereco").value;
+            aluno["email"] = document.getElementById("email").value;
+            aluno["telefone"] = document.getElementById("telefone").value;
+
+            aluno["nascimento"] = formatarData(aluno.nascimento);
+
+            banco_aluno.push(aluno);
+            
+            alert(aluno.nome + " foi cadastrado(a)");
+            limpar()
+        }
+
+        function limpar(){
+            var elementos = document.getElementsByTagName("input");
+        
+            for (var i=0; i < 5; i++){
+                elementos[i].value = "";    
+            }
+        }
+
+        function formatarData(data){
+            var admissao = data.split("-");
+
+            return admissao[2] + "/" + admissao[1] + "/" + admissao[0];
+        }
+    </script>
+</head>
+<body>
+    <a href="alunos.html">Voltar</a>
+    <p>Formulário para novo Aluno</p>
+
+    <form>
+        <input type="text" id="nome" placeholder="Nome" />
+        <label>Data de Nascimento: </label>
+        <input type="date" id="nascimento" />
+        <input type="text" id="endereco" placeholder="Endereço" />
+        <input type="email" id="email" placeholder="E-mail" />
+        <input type="number" id="telefone" placeholder="Telefone" />
+        <input type="button" id="cadastro" value="OK" onclick="cadastrar()" />
+        <input type="button" id="limpa" value="Limpar" onclick="limpar()" />
+    </form>
+
+    <a href="cursos.html">Cursos</a>
+    <a href="turmas.html">Turmas</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="professores.html">Professores</a>
+    
+</body>
+</html>

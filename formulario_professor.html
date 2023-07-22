@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Aluno</title>
+    <script>
+        var banco_professor = []
+
+        function cadastrar(){
+            var professor = {}
+            professor["nome"] = document.getElementById("nome").value;
+            professor["email"] = document.getElementById("email").value;
+            professor["telefone"] = document.getElementById("telefone").value;
+
+            banco_professor.push(professor);
+            
+            alert(professor.nome + " foi cadastrado(a)");
+            limpar()
+        }
+
+        function limpar(){
+            var elementos = document.getElementsByTagName("input");
+        
+            for (var i=0; i < 3; i++){
+                elementos[i].value = "";    
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <a href="professores.html">Voltar</a>
+    <p>Formulário para novo Professor</p>
+
+    <form>
+        <input type="text" id="nome" placeholder="Nome" />
+        <input type="email" id="email" placeholder="E-mail" />
+        <input type="number" id="telefone" placeholder="Telefone" />
+        <input type="button" id="cadastro" value="OK" onclick="cadastrar()" />
+        <input type="button" id="limpa" value="Limpar" onclick="limpar()" />
+    </form>
+
+    <a href="cursos.html">Cursos</a>
+    <a href="turmas.html">Turmas</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="professores.html">Professores</a>
+    
+</body>
+</html>

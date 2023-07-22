@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Curso</title>
+    <script>
+        var banco_curso = []
+
+        function cadastrar(){
+            var pessoa = {}
+            pessoa["nome"] = document.getElementById("nome").value;
+            pessoa["valor"] = Number(document.getElementById("valor").value);
+
+            banco_curso.push(pessoa);
+            alert(pessoa.nome + " foi cadastrado(a)");
+            limpar()
+        }
+
+        function limpar(){
+            var elementos = document.getElementsByTagName("input");
+        
+            for (var i=0; i < 2; i++){
+                elementos[i].value = "";    
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="cursos.html">Voltar</a>
+    <p>Formulário para novo Curso</p>
+
+    <form>
+        <input type="text" id="nome" placeholder="Nome" />
+        <input type="number" id="valor" placeholder="Valor" />
+        <input type="button" id="cadastro" value="OK" onclick="cadastrar()" />
+        <input type="button" id="limpa" value="Limpar" onclick="limpar()" />
+    </form>
+
+    <a href="cursos.html">Cursos</a>
+    <a href="turmas.html">Turmas</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="professores.html">Professores</a>
+    
+</body>
+</html>

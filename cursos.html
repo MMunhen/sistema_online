@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos cursos</title>
+    <script>
+        function cabecalho(){
+            var str = "<tr>";
+            str += "<td>Nome</td>";
+            str += "<td>Valor</td>";
+            str += "<td>Ações</td>";
+            str += "</tr>";
+            
+            document.getElementById("tabela").innerHTML = str;
+        }
+
+        function acoes(posicao){
+            var coluna = "<td>";
+            coluna += "<input type='button' value='Alterar'";
+            coluna += " onclick='alterar(" + posicao + ")' />";
+            
+            coluna += "<input type='button' value='Excluir'";
+            coluna += " onclick='excluir(" + posicao + ")' />";
+
+            coluna += "</td>"; 
+            return coluna;   
+        }
+
+    </script>
+</head>
+<body onload="cabecalho()">
+    
+    <p>NOSSOS CURSOS</p>
+    
+    <table id="tabela" border="1"></table>
+    
+    <a href="formulario_curso.html"><button>Novo Curso</button></a>
+
+    <div ></div>
+
+    <a href="cursos.html">Cursos</a>
+    <a href="turmas.html">Turmas</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="professores.html">Professores</a>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Turma</title>
+    <script>
+        var banco_curso = []
+
+        function cadastrar(){
+            var turma = {}
+            turma["curso"] = document.getElementById("curso").value;
+            turma["inicio"] = document.getElementById("inicio").value;
+            turma["termino"] = document.getElementById("termino").value;
+
+            turma["inicio"] = formatarData(turma.inicio);
+            turma["termino"] = formatarData(turma.termino);
+
+            banco_curso.push(turma);
+            
+            alert("Curso de " + turma.curso + " com início em: " + turma.inicio + " e término em: " + turma.termino +  " foi cadastrado");
+            limpar()
+        }
+
+        function limpar(){
+            var elementos = document.getElementsByTagName("input");
+        
+            for (var i=0; i < 2; i++){
+                elementos[i].value = "";    
+            }
+        }
+
+        function formatarData(data){
+            var admissao = data.split("-");
+
+            return admissao[2] + "/" + admissao[1] + "/" + admissao[0];
+        }
+    </script>
+</head>
+<body>
+    <a href="turmas.html">Voltar</a>
+    <p>Formulário para nova Turma</p>
+
+    <form>
+        <label>Curso:</label>
+        <select id="curso">
+            <option value="windows">Windows</option>
+            <option value="excel">Excel</option>
+            <option value="power_bi">Power BI</option>
+        </select>
+        <label>Data de Início: </label>
+        <input type="date" id="inicio"/>
+        <label>Data de Término: </label>
+        <input type="date" id="termino" />
+        <input type="button" id="cadastro" value="OK" onclick="cadastrar()" />
+        <input type="button" id="limpa" value="Limpar" onclick="limpar()" />
+    </form>
+
+    <a href="cursos.html">Cursos</a>
+    <a href="turmas.html">Turmas</a>
+    <a href="alunos.html">Alunos</a>
+    <a href="professores.html">Professores</a>
+    
+</body>
+</html>
