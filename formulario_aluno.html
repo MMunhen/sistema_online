@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Aluno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="css/estilos.css" rel="stylesheet" />
     <script>
         var banco_aluno = []
 
@@ -39,24 +41,57 @@
     </script>
 </head>
 <body>
-    <a href="alunos.html">Voltar</a>
-    <p>Formulário para novo Aluno</p>
+    <div class="mb-3">
+        <a href="alunos.html">Voltar</a>
+    </div>
 
-    <form>
-        <input type="text" id="nome" placeholder="Nome" />
-        <label>Data de Nascimento: </label>
-        <input type="date" id="nascimento" />
-        <input type="text" id="endereco" placeholder="Endereço" />
-        <input type="email" id="email" placeholder="E-mail" />
-        <input type="number" id="telefone" placeholder="Telefone" />
-        <input type="button" id="cadastro" value="OK" onclick="cadastrar()" />
-        <input type="button" id="limpa" value="Limpar" onclick="limpar()" />
-    </form>
+    <div class="mb-3 container">
+        <h3>Formulário para novo Aluno</h3>
+    </div>
 
-    <a href="cursos.html">Cursos</a>
-    <a href="turmas.html">Turmas</a>
-    <a href="alunos.html">Alunos</a>
-    <a href="professores.html">Professores</a>
+    <div class="container">
+        <form>
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" id="nome" name="nome" required="true" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="nascimento" class="form-label">Data de Nascimento</label>
+            <input type="date" id="nascimento" required="true" class="form-control" name="nascimento"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="endereco" class="form-label">Endereço</label>
+            <input type="text" id="endereco" name="endereco" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="mail" class="form-label">E-mail</label>
+            <input type="email" id="mail" name="mail" required="true" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="number" id="telefone" name="telefone"  class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <input type="submit" id="cadastro" value="OK" onclick="cadastrar()" class="btn btn-primary"/>
+            <input type="reset" id="limpa" value="Limpar" onclick="limpar()" class="btn btn-secondary"/>
+        </div>
+
+        </form>
+    </div>
+    
+    <div class="mb-3 container">
+        <a href="cursos.html">Cursos</a>
+        <a href="turmas.html">Turmas</a>
+        <a href="alunos.html">Alunos</a>
+        <a href="professores.html">Professores</a>
+    </div>
+    
     
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>

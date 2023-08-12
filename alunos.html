@@ -4,7 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossos Alunos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script>
+        var banco = [];
+
+        banco.push({nome: 'Marcos Munhen Lelis', 
+                    email: "marcos@teste.com", 
+                    telefone: '21 993952585'});
+
+        banco.push({nome: 'Matheus Munhen Lelis', 
+                    email: "matheus@teste.com", 
+                    telefone: '21 984442958'});
+
+        function listar(){
+            var saida = cabecalho();
+        
+            banco.sort(ordena);
+            for(var i=0; i < banco.length; i++) {
+                saida += inserirLinha(banco[i], i);       
+                console.log(banco[i]);
+            }
+
+            document.getElementById("tabela").innerHTML = saida;
+        }
+
+        function ordena(a,b){
+            if (a.nome == b.nome){
+                return 0;
+            }
+            if (a.nome < b.nome){
+                return -1;
+            }
+            if (a.nome > b.nome){
+                return 1;
+            }
+        }
+
+        function inserirLinha(objeto, p){
+           var str = "<tr>"
+                str += "<td>" + objeto.nome + "</td>"; 
+                str += "<td>" + objeto.email + "</td>";
+                str += "<td>" + objeto.telefone + "</td>";
+                str += acoes(p); 
+                str += "</tr>" 
+            return str;
+        }
+
         function cabecalho(){
             var str = "<tr>";
             str += "<td>Nome</td>";
@@ -13,7 +58,7 @@
             str += "<td>Ações</td>";
             str += "</tr>";
             
-            document.getElementById("tabela").innerHTML = str;
+            return str;
         }
 
         function acoes(posicao){
@@ -28,22 +73,36 @@
             return coluna;   
         }
 
+        function excluir(p){
+            var resposta = confirm("Deseja excluir este aluno?");
+            if (resposta == true){
+                banco.splice(p, 1);
+                listar();
+            }
+        }
+
     </script>
 </head>
-<body onload="cabecalho()">
+<body onload="cabecalho(); listar()">
+    <div class="mb-3 container">
+        <h2>NOSSOS ALUNOS</h2>
+    </div>
     
-    <p>NOSSOS ALUNOS</p>
+    <div class="mb-3 container">
+    <table id="tabela" class="table table-striped"></table>
+    </div>
     
-    <table id="tabela" border="1"></table>
-    
+    <div class="mb-3 container">
     <a href="formulario_aluno.html"><button>Novo Aluno</button></a>
+    </div>
 
-    <div ></div>
-
+    <div class="mb-3 container">
     <a href="cursos.html">Cursos</a>
     <a href="turmas.html">Turmas</a>
     <a href="alunos.html">Alunos</a>
     <a href="professores.html">Professores</a>
+    </div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>
